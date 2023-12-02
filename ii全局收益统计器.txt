@@ -1,0 +1,202 @@
+//@version=5
+indicator("web3ii_全局收益统计器 i1",overlay = 1)
+import web3ii_com/web3ii_qjsytjq/10 as web3ii_qjsytjq
+
+
+
+key=input.string("web3ii202311204641111")  
+// 2、第二步、:修改你的持仓品种
+s1=input.symbol("binance:btcusdt.p")
+s2=input.symbol("")
+s3=input.symbol("")
+s4=input.symbol("")
+s5=input.symbol("")
+s6=input.symbol("")
+s7=input.symbol("")
+s8=input.symbol("")
+s9=input.symbol("")
+s10=input.symbol("")
+s11=input.symbol("")
+s12=input.symbol("")
+s13=input.symbol("")
+s14=input.symbol("")
+s15=input.symbol("")
+s16=input.symbol("")
+s17=input.symbol("")
+s18=input.symbol("")
+s19=input.symbol("")
+s20=input.symbol("")
+
+
+// 3、最后一步: 修改你持仓品种的购入成本价 
+p1=input.price(30000)
+p2=input.price(0)
+p3=input.price(0)
+p4=input.price(0)
+p5=input.price(0)
+p6=input.price(0)
+p7=input.price(0)
+p8=input.price(0)
+p9=input.price(0)
+p10=input.price(0)
+p11=input.price(0)
+p12=input.price(0)
+p13=input.price(0)
+p14=input.price(0)
+p15=input.price(0)
+p16=input.price(0)
+p17=input.price(0)
+p18=input.price(0)
+p19=input.price(0)
+p20=input.price(0)
+
+//+++++++++++++++++++++++++++++++++++++++++++
+colorup=color.new(#089981,10)
+colordown=color.new(color.red,90)
+
+
+
+
+
+
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+syms(key,i,s,p)=>
+    ii1=web3ii_qjsytjq.sys_info(key,s,i)
+    ss1=web3ii_qjsytjq.sys_infosym(key,s)
+    cc1=web3ii_qjsytjq.sys_info(key, s,request.security(s,"1D",close)) 
+    pp1=web3ii_qjsytjq.sys_info(key,s,str.tonumber( str.tostring(p))) 
+    roe1=web3ii_qjsytjq.sys_infostr(key,s,str.tostring((request.security(s,"1D",close)-p)/p*100,"#.##")+"%" )  
+    roe=(request.security(s,"1D",close)-p)/p*100
+    color1=web3ii_qjsytjq.sys_infocolor(key,s,roe)
+    [ii1,ss1,cc1,pp1,roe1,color1]
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+[i1,ss1,cc1,pp1,roe1,color1]=syms(key,1,s1,p1)  
+[i2,ss2,cc2,pp2,roe2,color2]=syms(key,2,s2,p2)  
+[i3,ss3,cc3,pp3,roe3,color3]=syms(key,3,s3,p3)  
+[i4,ss4,cc4,pp4,roe4,color4]=syms(key,4,s4,p4)  
+[i5,ss5,cc5,pp5,roe5,color5]=syms(key,5,s5,p5)  
+[i6,ss6,cc6,pp6,roe6,color6]=syms(key,6,s6,p6)  
+[i7,ss7,cc7,pp7,roe7,color7]=syms(key,7,s7,p7)  
+[i8,ss8,cc8,pp8,roe8,color8]=syms(key,8,s8,p8)  
+[i9,ss9,cc9,pp9,roe9,color9]=syms(key,9,s9,p9)  
+[i10,ss10,cc10,pp10,roe10,color10]=syms(key,10,s10,p10)  
+[i11,ss11,cc11,pp11,roe11,color11]=syms(key,11,s11,p11)  
+[i12,ss12,cc12,pp12,roe12,color12]=syms(key,12,s12,p12)  
+[i13,ss13,cc13,pp13,roe13,color13]=syms(key,13,s13,p13)  
+[i14,ss14,cc14,pp14,roe14,color14]=syms(key,14,s14,p14)  
+[i15,ss15,cc15,pp15,roe15,color15]=syms(key,15,s15,p15)  
+[i16,ss16,cc16,pp16,roe16,color16]=syms(key,16,s16,p16)  
+[i17,ss17,cc17,pp17,roe17,color17]=syms(key,17,s17,p17)  
+[i18,ss18,cc18,pp18,roe18,color18]=syms(key,18,s18,p18)  
+[i19,ss19,cc19,pp19,roe19,color19]=syms(key,19,s19,p19)  
+[i20,ss20,cc20,pp20,roe20,color20]=syms(key,20,s20,p20)  
+
+c0=web3ii_qjsytjq.cols_sym("编号","品种","收盘价" ,"成本价","收益率","全局收益统计器i1")
+c1=web3ii_qjsytjq.cols_sym(i1,ss1,cc1,pp1,roe1,color1)
+c2=web3ii_qjsytjq.cols_sym(i2,ss2,cc2,pp2,roe2,color2)
+c3=web3ii_qjsytjq.cols_sym(i3,ss3,cc3,pp3,roe3,color3)
+c4=web3ii_qjsytjq.cols_sym(i4,ss4,cc4,pp4,roe4,color4)
+c5=web3ii_qjsytjq.cols_sym(i5,ss5,cc5,pp5,roe5,color5)
+c6=web3ii_qjsytjq.cols_sym(i6,ss6,cc6,pp6,roe6,color6)
+c7=web3ii_qjsytjq.cols_sym(i7,ss7,cc7,pp7,roe7,color7)
+c8=web3ii_qjsytjq.cols_sym(i8,ss8,cc8,pp8,roe8,color8)
+c9=web3ii_qjsytjq.cols_sym(i9,ss9,cc9,pp9,roe9,color9)
+c10=web3ii_qjsytjq.cols_sym(i10,ss10,cc10,pp10,roe10,color10)
+c11=web3ii_qjsytjq.cols_sym(i11,ss11,cc11,pp11,roe11,color11)
+c12=web3ii_qjsytjq.cols_sym(i12,ss12,cc12,pp12,roe12,color12)
+c13=web3ii_qjsytjq.cols_sym(i13,ss13,cc13,pp13,roe13,color13)
+c14=web3ii_qjsytjq.cols_sym(i14,ss14,cc14,pp14,roe14,color14)
+c15=web3ii_qjsytjq.cols_sym(i15,ss15,cc15,pp15,roe15,color15)
+c16=web3ii_qjsytjq.cols_sym(i16,ss16,cc16,pp16,roe16,color16)
+c17=web3ii_qjsytjq.cols_sym(i17,ss17,cc17,pp17,roe17,color17)
+c18=web3ii_qjsytjq.cols_sym(i18,ss18,cc18,pp18,roe18,color18)
+c19=web3ii_qjsytjq.cols_sym(i19,ss19,cc19,pp19,roe19,color19)
+c20=web3ii_qjsytjq.cols_sym(i20,ss20,cc20,pp20,roe20,color20)
+
+
+
+
+
+tb()=>
+    var tb=table.new(position = position.middle_right, columns = 30, rows = 30, bgcolor = na, border_width = 1,frame_width = 1,frame_color=color.new(color.gray,40),border_color=color.new(color.gray,40))
+    if barstate.islastconfirmedhistory
+        size=array.size(c0)  //row为行 ，属于一个对象的所有数据 一般就是个数组；
+        for i=0 to size-1 
+            c0i=array.get(c0,i) 
+            table.cell(tb,row = 0,column=i, text = c0i,text_color = color.gray)
+
+
+            c1i=array.get(c1,i) 
+            c2i=array.get(c2,i) 
+            c3i=array.get(c3,i) 
+            c4i=array.get(c4,i) 
+            c5i=array.get(c5,i) 
+            c6i=array.get(c6,i) 
+            c7i=array.get(c7,i) 
+            c8i=array.get(c8,i) 
+            c9i=array.get(c9,i) 
+            c10i=array.get(c10,i) 
+            c11i=array.get(c11,i) 
+            c12i=array.get(c12,i) 
+            c13i=array.get(c13,i) 
+            c14i=array.get(c14,i) 
+            c15i=array.get(c15,i) 
+            c16i=array.get(c16,i) 
+            c17i=array.get(c17,i) 
+            c18i=array.get(c18,i) 
+            c19i=array.get(c19,i) 
+            c20i=array.get(c20,i) 
+
+
+
+            color1i=web3ii_qjsytjq.colors(array.get(c1,size-1) )
+            color2i=web3ii_qjsytjq.colors(array.get(c2,size-1) )
+            color3i=web3ii_qjsytjq.colors(array.get(c3,size-1) )
+            color4i=web3ii_qjsytjq.colors(array.get(c4,size-1) )
+            color5i=web3ii_qjsytjq.colors(array.get(c5,size-1) )
+            color6i=web3ii_qjsytjq.colors(array.get(c6,size-1) )
+            color7i=web3ii_qjsytjq.colors(array.get(c7,size-1) )
+            color8i=web3ii_qjsytjq.colors(array.get(c8,size-1) )
+            color9i=web3ii_qjsytjq.colors(array.get(c9,size-1) )
+            color10i=web3ii_qjsytjq.colors(array.get(c10,size-1) )
+            color11i=web3ii_qjsytjq.colors(array.get(c11,size-1) )
+            color12i=web3ii_qjsytjq.colors(array.get(c12,size-1) )
+            color13i=web3ii_qjsytjq.colors(array.get(c13,size-1) )
+            color14i=web3ii_qjsytjq.colors(array.get(c14,size-1) )
+            color15i=web3ii_qjsytjq.colors(array.get(c15,size-1) )
+            color16i=web3ii_qjsytjq.colors(array.get(c16,size-1) )
+            color17i=web3ii_qjsytjq.colors(array.get(c17,size-1) )
+            color18i=web3ii_qjsytjq.colors(array.get(c18,size-1) )
+            color19i=web3ii_qjsytjq.colors(array.get(c19,size-1) )
+            color20i=web3ii_qjsytjq.colors(array.get(c20,size-1) )
+      
+            table.cell(tb,row = 1,column=i ,text = c1i,text_color = color1i)
+            table.cell(tb,row = 2,column=i ,text = c2i,text_color = color2i)
+            table.cell(tb,row = 3,column=i ,text = c3i,text_color = color3i)
+            table.cell(tb,row = 4,column=i ,text = c4i,text_color = color4i)
+            table.cell(tb,row = 5,column=i ,text = c5i,text_color = color5i)
+            table.cell(tb,row = 6,column=i ,text = c6i,text_color = color6i)
+            table.cell(tb,row = 7,column=i ,text = c7i,text_color = color7i)
+            table.cell(tb,row = 8,column=i ,text = c8i,text_color = color8i)
+            table.cell(tb,row = 9,column=i ,text = c9i,text_color = color9i)
+            table.cell(tb,row = 10,column=i ,text = c10i,text_color = color10i)
+            table.cell(tb,row = 11,column=i ,text = c11i,text_color = color11i)
+            table.cell(tb,row = 12,column=i ,text = c12i,text_color = color12i)
+            table.cell(tb,row = 13,column=i ,text = c13i,text_color = color13i)
+            table.cell(tb,row = 14,column=i ,text = c14i,text_color = color14i)
+            table.cell(tb,row = 15,column=i ,text = c15i,text_color = color15i)
+            table.cell(tb,row = 16,column=i ,text = c16i,text_color = color16i)
+            table.cell(tb,row = 17,column=i ,text = c17i,text_color = color17i)
+            table.cell(tb,row = 18,column=i ,text = c18i,text_color = color18i)
+            table.cell(tb,row = 19,column=i ,text = c19i,text_color = color19i)
+            table.cell(tb,row = 20,column=i ,text = c20i,text_color = color20i)
+     
+
+
+tb()
