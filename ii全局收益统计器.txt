@@ -3,9 +3,9 @@ indicator("web3ii_全局收益统计器 i1",overlay = 1)
 import web3ii_com/web3ii_qjsytjq/10 as web3ii_qjsytjq
 
 
-
+//1、输入你的获取的密钥
 key=input.string("web3ii202311204641111")  
-// 2、第二步、:修改你的持仓品种
+// 2、在这里修改你的持仓品种，也可以在参数面板修改
 s1=input.symbol("binance:btcusdt.p")
 s2=input.symbol("")
 s3=input.symbol("")
@@ -28,7 +28,7 @@ s19=input.symbol("")
 s20=input.symbol("")
 
 
-// 3、最后一步: 修改你持仓品种的购入成本价 
+// 3、 建议在原代码里修改你持仓品种的购入成本价，如果在参数面板里修改，当你再次加载会恢复默认，比较不好。将（）括号的数字修改成你的成本价即可 
 p1=input.price(30000)
 p2=input.price(0)
 p3=input.price(0)
